@@ -1,7 +1,6 @@
 "use client";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function About() {
@@ -15,6 +14,7 @@ export default function About() {
     grayText: "#d1d5db",
     footerText: "#9ca3af",
     white: "#ffffff",
+    skillBg: "#1f1f1f",
   };
 
   const cards = [
@@ -26,18 +26,26 @@ export default function About() {
   const techStack = [
     { category: "Languages", skills: ["Java", "Python", "SQL"] },
     { category: "Frontend", skills: ["HTML", "CSS", "React"] },
-    { category: "Backend", skills: ["Node.js", "Express"] },
-    { category: "AI & Automation", skills: ["ML Models", "AI-driven Security"] },
-    { category: "Tools & Platforms", skills: ["Git", "Docker", "AWS"] },
+    { category: "Backend", skills: ["Node.js"] },
+    { category: "Tools & Platforms", skills: ["Git", "Docker"] },
   ];
 
   const [activeTab, setActiveTab] = useState(techStack[0].category);
 
   return (
-    <div className="flex min-h-screen" style={{ backgroundColor: colors.mainBg, color: colors.white }}>
+    <div className="flex" style={{ backgroundColor: colors.mainBg, color: colors.white }}>
       {/* Sidebar */}
-      <aside className="w-64 p-6 flex flex-col items-center text-center border-r"
-             style={{ backgroundColor: colors.mainBg, borderColor: colors.border }}>
+      <aside
+        className="w-64 p-6 flex flex-col justify-center items-center text-center border-r"
+        style={{
+          backgroundColor: colors.mainBg,
+          borderColor: colors.border,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100vh",
+        }}
+      >
         {/* Profile */}
         <div className="w-32 h-32 rounded-lg overflow-hidden border-2 shadow-lg" style={{ borderColor: colors.border }}>
           <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover" />
@@ -62,7 +70,7 @@ export default function About() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 ml-64">
         {/* About Section */}
         <section id="about" className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold" style={{ color: colors.white }}>
@@ -100,42 +108,31 @@ export default function About() {
             ))}
           </section>
 
-          {/* Interactive Tech Stack Tabs */}
-          <section className="text-left max-w-3xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-6" style={{ color: colors.gradientEnd }}> Tech Stack</h2>
+          {/* Skills Section with Progress Bars */}
+          <section className="text-left max-w-3xl mx-auto mt-12">
+            <h2 className="text-3xl font-semibold mb-6" style={{ color: colors.gradientEnd }}>
+              Skills
+            </h2>
 
-            {/* Tabs */}
-            <div className="flex flex-wrap gap-3 mb-6">
-              {techStack.map((tab, i) => (
-              <button
-  key={i}
-  onClick={() => setActiveTab(tab.category)}
-  className="px-4 py-2 rounded-lg text-white font-medium transition"
-  style={{
-    background: activeTab === tab.category
-      ? `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`
-      : colors.mainBg, // fallback for inactive tabs
-    color: activeTab === tab.category ? colors.white : colors.grayText,
-  }}
->
-  {tab.category}
-</button>
-
-              ))}
-            </div>
-
-            {/* Active Tab Skills */}
-            <div className="flex flex-wrap gap-3">
-             {techStack.find(t => t.category === activeTab)?.skills?.map((skill, i) => (
-  <span key={i}
-        className="px-4 py-1 rounded-full text-sm font-medium text-white"
-        style={{
-          background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`
-        }}>
-    {skill}
-  </span>
-)) || []}
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {techStack.flatMap(tab =>
+                tab.skills.map((skill, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className="flex justify-between mb-1">
+                      <span style={{ color: colors.subText }}>{skill}</span>
+                    </div>
+                    <div className="w-full h-3 rounded-lg" style={{ backgroundColor: colors.skillBg }}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: "80%" }}
+                        transition={{ duration: 1.2 }}
+                        className="h-3 rounded-lg"
+                        style={{ background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})` }}
+                      />
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </section>
         </section>
