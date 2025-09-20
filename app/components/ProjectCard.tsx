@@ -2,20 +2,29 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+type ProjectCardProps = {
+  title?: string;
+  description?: string;
+  image?: string;
+  repo?: string;
+  demo?: string;
+  screenshots?: string[];
+};
+
 export default function ProjectCard({
   title = "Project Title",
   description = "Project description goes here.",
-  image="/projects/placeholder.png",
+  image = "/projects/placeholder.png",
   repo = "",
   demo = "",
   screenshots = [],
-}) {
+}: ProjectCardProps) {
   const [showGallery, setShowGallery] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const colors = {
     mainBg: "#0a0a0a",
-       gradientStart: "#420D4B",
+    gradientStart: "#420D4B",
     gradientEnd: "#8B337E",
     border: "#420D4B",
     heading: "#E0B3FF",
@@ -23,17 +32,16 @@ export default function ProjectCard({
     grayText: "#d1d5db",
   };
 
-// Functions to navigate screenshots safely
-const nextScreenshot = (e) => {
-  if (e) e.stopPropagation(); // stop modal from closing
+  // Functions to navigate screenshots safely
+  const nextScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.stopPropagation();
   setCurrentIndex((prev) => (prev + 1) % screenshots.length);
 };
 
-const prevScreenshot = (e) => {
-  if (e) e.stopPropagation();
+const prevScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.stopPropagation();
   setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
 };
-
 
 
   return (
@@ -56,38 +64,37 @@ const prevScreenshot = (e) => {
             </p>
           </div>
           <div className="flex gap-3 justify-center mt-2">
-  {repo && (
-    <a
-      href={repo}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
-      style={{
-        background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-        color: colors.heading,
-      }}
-      onClick={(e) => e.stopPropagation()} // prevents modal from closing
-    >
-      GitHub
-    </a>
-  )}
-  {demo && (
-    <a
-      href={demo}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
-      style={{
-        background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-        color: colors.heading,
-      }}
-      onClick={(e) => e.stopPropagation()}
-    >
-      Live Demo
-    </a>
-  )}
-</div>
-
+            {repo && (
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
+                style={{
+                  background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                  color: colors.heading,
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                GitHub
+              </a>
+            )}
+            {demo && (
+              <a
+                href={demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
+                style={{
+                  background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                  color: colors.heading,
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Live Demo
+              </a>
+            )}
+          </div>
         </div>
       </motion.div>
 
@@ -115,7 +122,7 @@ const prevScreenshot = (e) => {
                     style={{
                       background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     }}
-                    onClick={(e) => prevScreenshot(e)} 
+                    onClick={prevScreenshot}
                   >
                     ‹
                   </button>
@@ -126,7 +133,7 @@ const prevScreenshot = (e) => {
                     style={{
                       background: `linear-gradient(to left, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     }}
-                    onClick={(e) => nextScreenshot(e)} 
+                    onClick={nextScreenshot}
                   >
                     ›
                   </button>

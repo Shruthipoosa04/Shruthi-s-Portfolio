@@ -16,7 +16,7 @@ export default function ProjectsPage() {
           description="A fake Wi-Fi detection system using NodeMCU that identifies Evil Twin attacks and alerts users in real-time."
           image="/projects/twintrap.png"
           repo="https://github.com/yourusername/twintrap"
-          screenshots={["/projects/twintrap1.png", "/projects/twintrap2.png"]}
+         // screenshots={["/projects/twintrap1.png", "/projects/twintrap2.png"]}//
         />
 
         <ProjectCard
@@ -24,21 +24,21 @@ export default function ProjectsPage() {
           description="Deep learning model that analyzes uploaded images and shows AI-generated content percentage through pie chart visualization."
           image="/projects/pixelforensics.png"
           repo="https://github.com/yourusername/pixelforensics"
-          screenshots={["/projects/pixel1.png", "/projects/pixel2.png"]}
+        //  screenshots={["/projects/pixel1.png", "/projects/pixel2.png"]}//
         />
 
         <ProjectCard
           title="ShadowTrace"
           description="Digital footprint analyzer that evaluates a user's online exposure across platforms, generates verification results, and produces security reports."
-          image="/projects/shadowtrace.png"
+          image="/projects/shadowtrace1.png"
           repo="https://github.com/yourusername/shadowtrace"
-          screenshots={["/projects/shadow1.png", "/projects/shadow2.png"]}
+          screenshots={["/projects/shadowtrace1.png", "/projects/shadowtrace2.png"]}
         />
 
         <ProjectCard
           title="S.A.N.C.T.U.M"
           description="Secure Air-Gapped Non-Contact Transmission using ultrasonic modulation, shortlisted at MSME Ideathon by a DRDO member."
-          image="/projects/sanctum.png"
+          image="/projects/sanctum2.png"
           repo="https://github.com/yourusername/sanctum"
           screenshots={["/projects/sanctum1.png", "/projects/sanctum2.png"]}
         />
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
           description="AI-assisted interface that converts human language into SQL queries, making SQL practice simple and interactive."
           image="/projects/querylite.png"
           repo="https://github.com/yourusername/querylite"
-          screenshots={["/projects/query1.png", "/projects/query2.png"]}
+         // screenshots={["/projects/query1.png", "/projects/query2.png"]}//
         />
 
         <ProjectCard
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
           description="Telegram bot that compresses PDFs to custom sizes, merges multiple PDFs, and converts between PDF, DOC, and TXT formats."
           image="/projects/claripdf.png"
           repo="https://github.com/yourusername/claripdf"
-          screenshots={["/projects/clari1.png", "/projects/clari2.png"]}
+         // screenshots={["/projects/clari1.png", "/projects/clari2.png"]}//
         />
       </div>
     </main>
