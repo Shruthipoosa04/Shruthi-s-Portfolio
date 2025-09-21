@@ -62,24 +62,25 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-black text-white p-8 text-center">
       <h1 className="text-5xl font-bold mb-8 text-[#E0B3FF] drop-shadow-lg">Projects</h1>
 
-      {/* Filter Buttons */}
-      <div className="flex justify-center gap-4 mb-12">
-          {categories.map(cat => (
-  <button
-  key={cat}
-  onClick={() => setActiveFilter(cat)}
-  style={{
-    background: activeFilter === cat
-      ? `linear-gradient(to right, #420D4B, #8B337E)`
-      : "#1f2937", // fallback gray (Tailwind bg-gray-800)
-  }}
-  className="px-4 py-2 rounded-full font-medium text-white transition"
->
-  {cat}
-</button>
-
+<div className="grid grid-cols-3 sm:flex sm:justify-center gap-4 mb-12 max-w-md mx-auto">
+  {categories.map((cat) => (
+    <button
+      key={cat}
+      onClick={() => setActiveFilter(cat)}
+      style={{
+        background:
+          activeFilter === cat
+            ? `linear-gradient(to right, #420D4B, #8B337E)`
+            : "#1f2937",
+      }}
+      className="px-4 py-2 rounded-full font-medium text-white transition"
+    >
+      {cat}
+    </button>
   ))}
-      </div>
+</div>
+
+
 
       {/* Project Grid */}
       <div className="flex flex-wrap justify-center gap-10">

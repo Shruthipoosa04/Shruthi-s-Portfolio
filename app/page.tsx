@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 
 export default function About() {
   const colors = {
@@ -30,60 +30,83 @@ export default function About() {
     { category: "Tools & Platforms", skills: ["Git", "Docker"] },
   ];
 
-  const [activeTab, setActiveTab] = useState(techStack[0].category);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="flex" style={{ backgroundColor: colors.mainBg, color: colors.white }}>
       {/* Sidebar */}
       <aside
-        className="w-64 p-6 flex flex-col justify-center items-center text-center border-r"
-        style={{
-          backgroundColor: colors.mainBg,
-          borderColor: colors.border,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "100vh",
-        }}
+        className={`fixed top-0 left-0 h-full w-64 p-6 flex flex-col justify-between text-center border-r 
+        transition-transform duration-300 z-50
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+        style={{ borderColor: colors.border, backgroundColor: colors.mainBg }}
       >
-        {/* Profile */}
-        <div className="w-32 h-32 rounded-lg overflow-hidden border-2 shadow-lg" style={{ borderColor: colors.border }}>
-          <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover" />
-        </div>
-        <h2 className="mt-4 text-lg font-bold" style={{ color: colors.gradientEnd }}>Shruthi Poosa</h2>
-        <p className="text-sm" style={{ color: colors.grayText }}>Cybersecurity Enthusiast | Problem Solver</p>
+        {/* Close button (mobile only) */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 md:hidden text-white"
+        >
+          <X size={28} />
+        </button>
 
-        {/* Contact Links */}
-        <div className="space-y-4 text-sm w-full mt-6">
-          {[
-            { icon: Linkedin, label: "shruthi_poosa", url: "https://linkedin.com/in/yourusername" },
-            { icon: Github, label: "shruthipoosa04", url: "https://github.com/yourusername" },
-            { icon: Mail, label: "shruthipoosa0404@gmail.com", url: "mailto:shruthipoosa0404@gmail.com" }
-          ].map((item, i) => (
-            <a key={i} href={item.url} target="_blank" rel="noopener noreferrer"
-               className="flex items-center justify-center gap-4 hover:opacity-80 transition"
-               style={{ color: colors.subText }}>
-              <item.icon className="w-5 h-5" /> {item.label}
-            </a>
-          ))}
+        {/* Profile Section */}
+        <div className="flex flex-col items-center gap-4 mt-8">
+          <img
+            src="profile.jpg" 
+            alt="profile"
+            className="w-28 h-28 rounded-2xl border-4 object-cover"
+            style={{ borderColor: colors.border }}
+          />
+          <h2 className="text-lg font-bold" style={{ color: colors.heading }}>
+            Shruthi Poosa
+          </h2>
+          <p className="text-sm" style={{ color: colors.grayText }}>
+            Cybersecurity | Fullstack Dev
+          </p>
+        </div>
+
+        {/* Links */}
+        <div className="flex justify-center gap-6 mt-6">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <Github className="hover:text-purple-400 transition" />
+          </a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <Linkedin className="hover:text-purple-400 transition" />
+          </a>
+          <a href="mailto:shruthi@example.com">
+            <Mail className="hover:text-purple-400 transition" />
+          </a>
         </div>
       </aside>
 
+      {/* Overlay for mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       {/* Main Content */}
-      <main className="flex-1 p-8 ml-64">
+      <main className="flex-1 p-6 sm:p-10 md:ml-64 relative">
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="absolute top-6 left-4 md:hidden text-white z-30"
+        >
+          <Menu size={28} />
+        </button>
+
         {/* About Section */}
-        <section id="about" className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold" style={{ color: colors.white }}>
+        <section className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h1 className="text-4xl font-bold text-center md:text-left" style={{ color: colors.white }}>
             Hi, I’m <span style={{ color: "#7A2E7D" }}>Shruthi Poosa</span>
           </h1>
           <p
-            className="mt-4 text-lg"
+            className="mt-4 text-lg text-justify"
             style={{
               color: colors.grayText,
               lineHeight: "1.8",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textIndent: "2em",
               marginBottom: "2em",
               fontSize: "1.1rem",
               fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
@@ -98,24 +121,28 @@ export default function About() {
           {/* Cards Section */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {cards.map((card, i) => (
-              <motion.div key={i} whileHover={{ y: -5, scale: 1.02 }}
+              <motion.div
+                key={i}
+                whileHover={{ y: -5, scale: 1.02 }}
                 className="p-6 rounded-2xl shadow-lg border transition cursor-pointer"
                 style={{ backgroundColor: colors.mainBg, borderColor: colors.border }}
               >
-                <h3 className="text-xl font-semibold mb-2" style={{ color: colors.heading }}>{card.title}</h3>
+                <h3 className="text-xl font-semibold mb-2" style={{ color: colors.heading }}>
+                  {card.title}
+                </h3>
                 <p style={{ color: colors.grayText }}>{card.desc}</p>
               </motion.div>
             ))}
           </section>
 
-          {/* Skills Section with Progress Bars */}
+          {/* Skills Section */}
           <section className="text-left max-w-3xl mx-auto mt-12">
             <h2 className="text-3xl font-semibold mb-6" style={{ color: colors.gradientEnd }}>
               Skills
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {techStack.flatMap(tab =>
+              {techStack.flatMap((tab) =>
                 tab.skills.map((skill, i) => (
                   <div key={i} className="space-y-2">
                     <div className="flex justify-between mb-1">
@@ -127,7 +154,9 @@ export default function About() {
                         animate={{ width: "80%" }}
                         transition={{ duration: 1.2 }}
                         className="h-3 rounded-lg"
-                        style={{ background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})` }}
+                        style={{
+                          background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                        }}
                       />
                     </div>
                   </div>
@@ -138,7 +167,10 @@ export default function About() {
         </section>
 
         {/* Footer */}
-        <footer className="text-center py-6 mt-12 text-sm border-t" style={{ borderColor: colors.border, color: colors.footerText }}>
+        <footer
+          className="text-center py-6 mt-12 text-sm border-t"
+          style={{ borderColor: colors.border, color: colors.footerText }}
+        >
           © {new Date().getFullYear()} Shruthi Poosa. All rights reserved.
         </footer>
       </main>

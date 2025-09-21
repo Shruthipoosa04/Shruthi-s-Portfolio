@@ -15,10 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full bg-black text-white px-8 py-4 flex items-center justify-between shadow-md">
-      {/* Portfolio Title */}
-      <h1 className="text-xl font-bold" style={{ color: "#8B337E" }}>
-        Shruthi Portfolio
-      </h1>
+      
 
       {/* Navigation Links */}
       <ul className="flex gap-6">

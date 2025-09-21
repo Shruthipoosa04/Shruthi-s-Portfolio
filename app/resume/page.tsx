@@ -64,11 +64,11 @@ export default function ResumePage() {
             "Secure Air-gapped Non-Contact Transmission using Ultrasonic Modulation.",
         },
         {
-          title: "AIREN",
-          place: "Academic Project",
-          date: "2024",
+          title: "ShadowTrace",
+          place: "Research Project",
+          date: "2025",
           description:
-            "AI-Driven Framework for Multilayered IoT Security with Ethical Governance and Regulatory Compliance.",
+            "Digital Footprint Analyzer using OSINT techniques to assess online presence, vulnerabilities and provide mitigation strategies.",
         },
       ],
     },
@@ -76,18 +76,18 @@ export default function ResumePage() {
       heading: "Achievements & Certifications",
       items: [
         {
-          title: "Certified Ethical Hacker (CEH)",
-          place: "EC-Council",
+          title: "ISC2 Certified in Cybersecurity",
+          place: "(ISC)²",
           date: "2025",
           description:
-            "Obtained professional certification in ethical hacking and network security.",
+            "Obtained professional certification in cybersecurity principles and practices.",
         },
         {
-          title: "Hackathon Winner – CyberSecure 2024",
+          title: "S.A.N.C.T.U.M – shortlisted for MSME Ideathon",
           place: "IARE",
-          date: "2024",
+          date: "2025",
           description:
-            "Awarded 1st place for developing an AI-driven intrusion detection system.",
+            "Our project was shortlisted for MSME Ideathon among our college projects by an external committe member from DRDO.",
         },
       ],
     },
@@ -105,26 +105,22 @@ export default function ResumePage() {
 
   return (
     <main
-      className="min-h-screen text-white p-8"
-      style={{ backgroundColor: colors.mainBg, color: colors.white }}
+      className="min-h-screen text-white px-4 sm:px-8 py-12"
+      style={{ backgroundColor: colors.mainBg }}
     >
-      {/* Page Title & Download Button */}
-      <div className="flex justify-between items-center mb-16">
-        <h1 className="text-5xl font-bold" style={{ color: colors.heading }}>
-          Resume
-        </h1>
-        <a
-          href="/Resume.pdf" // put your PDF in public folder
-          download
-          className="px-4 py-2 rounded-lg font-semibold"
-          style={{
-            background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-            color: colors.white,
-          }}
-        >
-          Download PDF
-        </a>
-      </div>
+      {/* Quick Line */}
+      <h1
+        className="text-4xl sm:text-5xl font-bold mb-6 text-center"
+        style={{ color: colors.heading }}
+      >
+        Resume
+      </h1>
+      <p
+        className="text-center mb-12 text-base sm:text-lg max-w-2xl mx-auto"
+        style={{ color: colors.grayText }}
+      >
+        A quick journey through my education, experiences, projects, and skills.
+      </p>
 
       {/* Timeline Sections */}
       {sections.map((section, secIndex) => (
@@ -136,7 +132,10 @@ export default function ResumePage() {
             {section.heading}
           </h2>
 
-          <div className="relative border-l ml-6" style={{ borderColor: colors.border }}>
+          <div
+            className="relative border-l ml-6"
+            style={{ borderColor: colors.border }}
+          >
             {section.items.map((item, index) => (
               <motion.div
                 key={index}
@@ -161,17 +160,27 @@ export default function ResumePage() {
                     borderColor: colors.border,
                   }}
                 >
-                  <h3 className="text-xl font-bold mb-2" style={{ color: colors.heading }}>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: colors.heading }}
+                  >
                     {item.title}
                   </h3>
                   <div
-                    className="flex justify-between items-center text-sm"
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm gap-1"
                     style={{ color: colors.grayText }}
                   >
                     <span>{item.place}</span>
-                    <span style={{ color: colors.subText, fontWeight: 600 }}>{item.date}</span>
+                    <span
+                      style={{ color: colors.subText, fontWeight: 600 }}
+                    >
+                      {item.date}
+                    </span>
                   </div>
-                  <p className="mt-3 leading-relaxed" style={{ color: colors.grayText }}>
+                  <p
+                    className="mt-3 leading-relaxed"
+                    style={{ color: colors.grayText }}
+                  >
                     {item.description}
                   </p>
                 </div>
@@ -197,10 +206,13 @@ export default function ResumePage() {
               onClick={() => setActiveTab(tab.category)}
               className="px-4 py-2 rounded-lg text-white font-medium transition"
               style={{
-                background: activeTab === tab.category
-                  ? `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`
-                  : colors.mainBg,
-                color: activeTab === tab.category ? colors.white : colors.grayText,
+                background:
+                  activeTab === tab.category
+                    ? `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`
+                    : colors.mainBg,
+                color:
+                  activeTab === tab.category ? colors.white : colors.grayText,
+                border: `1px solid ${colors.border}`,
               }}
             >
               {tab.category}
@@ -208,19 +220,39 @@ export default function ResumePage() {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center">
-          {techStack.find(t => t.category === activeTab)?.skills?.map((skill, i) => (
-            <span
-              key={i}
-              className="px-4 py-1 rounded-full text-sm font-medium text-white"
-              style={{
-                background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-              }}
-            >
-              {skill}
-            </span>
-          )) || []}
-        </div>
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex flex-wrap gap-3 justify-center"
+        >
+          {techStack.find((t) => t.category === activeTab)?.skills?.map(
+            (skill, i) => (
+              <span
+                key={i}
+                className="px-4 py-1 rounded-full text-sm font-medium text-white"
+                style={{
+                  background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                }}
+              >
+                {skill}
+              </span>
+            )
+          )}
+        </motion.div>
+      </div>
+
+      {/* Download Button at Bottom */}
+      <div className="text-center mt-12">
+        <a
+          href="/resume.pdf"
+          download
+          className="px-6 py-3 bg-gradient-to-r from-[#420D4B] to-[#8B337E] 
+                     hover:opacity-90 text-white rounded-lg shadow-md font-semibold"
+        >
+          Download Resume 
+        </a>
       </div>
     </main>
   );
