@@ -118,22 +118,21 @@ export default function About() {
         </button>
 
         {/* About Section */}
-        <section className="max-w-4xl px-4 sm:px-6 text-left">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6">
           <h1
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold text-left"
             style={{ color: colors.white }}
           >
             Hi, I’m <span style={{ color: "#7A2E7D" }}>Shruthi Poosa</span>
           </h1>
           <p
-            className="mt-4 text-lg"
+            className="mt-4 text-lg text-left"
             style={{
               color: colors.grayText,
               lineHeight: "1.8",
               marginBottom: "2em",
               fontSize: "1.1rem",
               fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-              textAlign: "left", // 👈 ensures no justify
             }}
           >
             I am a passionate{" "}
@@ -145,67 +144,77 @@ export default function About() {
               Fullstack Developer
             </span>
             , with a strong foundation in Java, Python, SQL, and modern web
-            technologies...
+            technologies. My work spans securing digital systems, developing
+            AI-driven solutions, and automating processes for efficiency and
+            accuracy.
+            <br />
+            <br />
+            I thrive at the intersection of technology and problem-solving,
+            constantly exploring innovative approaches to safeguard systems
+            while leveraging AI and automation to drive smarter solutions.
+            Dedicated, detail-oriented, and collaborative, I aim to create
+            impactful technology that balances functionality, security, and user
+            experience.
           </p>
-        </section>
 
-        {/* Cards Section */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl px-4 text-left">
-          {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="p-6 rounded-2xl shadow-lg border transition cursor-pointer"
-              style={{
-                backgroundColor: colors.mainBg,
-                borderColor: colors.border,
-              }}
-            >
-              <h3
-                className="text-xl font-semibold mb-2"
-                style={{ color: colors.heading }}
+          {/* Cards Section */}
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {cards.map((card, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="p-6 rounded-2xl shadow-lg border transition cursor-pointer"
+                style={{
+                  backgroundColor: colors.mainBg,
+                  borderColor: colors.border,
+                }}
               >
-                {card.title}
-              </h3>
-              <p style={{ color: colors.grayText }}>{card.desc}</p>
-            </motion.div>
-          ))}
-        </section>
+                <h3
+                  className="text-xl font-semibold mb-2"
+                  style={{ color: colors.heading }}
+                >
+                  {card.title}
+                </h3>
+                <p style={{ color: colors.grayText }}>{card.desc}</p>
+              </motion.div>
+            ))}
+          </section>
 
-        {/* Skills Section */}
-        <section className="text-left max-w-3xl px-4 mt-12">
-          <h2
-            className="text-3xl font-semibold mb-6"
-            style={{ color: colors.gradientEnd }}
-          >
-            Skills
-          </h2>
+          {/* Skills Section */}
+          <section className="text-left max-w-3xl mx-auto mt-12">
+            <h2
+              className="text-3xl font-semibold mb-6"
+              style={{ color: colors.gradientEnd }}
+            >
+              Skills
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {techStack.flatMap((tab) =>
-              tab.skills.map((skill, i) => (
-                <div key={i} className="space-y-2">
-                  <div className="flex justify-between mb-1">
-                    <span style={{ color: colors.subText }}>{skill}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {techStack.flatMap((tab) =>
+                tab.skills.map((skill, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className="flex justify-between mb-1">
+                      <span style={{ color: colors.subText }}>{skill}</span>
+                    </div>
+                    <div
+                      className="w-full h-3 rounded-lg"
+                      style={{ backgroundColor: colors.skillBg }}
+                    >
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: "80%" }}
+                        transition={{ duration: 1.2 }}
+                        className="h-3 rounded-lg"
+                        style={{
+                          background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div
-                    className="w-full h-3 rounded-lg"
-                    style={{ backgroundColor: colors.skillBg }}
-                  >
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: "80%" }}
-                      transition={{ duration: 1.2 }}
-                      className="h-3 rounded-lg"
-                      style={{
-                        background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+                ))
+              )}
+            </div>
+          </section>
         </section>
 
         {/* Footer */}
