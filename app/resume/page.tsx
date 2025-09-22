@@ -39,10 +39,17 @@ export default function ResumePage() {
       items: [
         {
           title: "Fullstack Developer – Ignite (CC)",
-          place: "Remote",
+          place: "IARE",
           date: "May 2024",
           description:
             "Worked on scalable web applications and optimized backend APIs.",
+        },
+         {
+          title: "CyberSecurity Intern – ShadowFox",
+          place: "Remote",
+          date: "May 2025",
+          description:
+            "Gained hands-on experience with diverse cybersecurity tools while supporting threat analysis and vulnerability assessments during my Shadowfox internship.",
         },
         {
           title: "Summer Research Internship",

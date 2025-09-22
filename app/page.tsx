@@ -18,9 +18,18 @@ export default function About() {
   };
 
   const cards = [
-    { title: "Skills", desc: "Cybersecurity, AI-driven security, Ethical Hacking, DevSecOps" },
-    { title: "Projects", desc: "ShadowTrace, Honeypots Simulation, S.A.N.C.T.U.M" },
-    { title: "Interests", desc: "Research, AI in Cybersecurity, Writing Tech Blogs, Storytelling" },
+    {
+      title: "Skills",
+      desc: "Cybersecurity, AI-driven security, Ethical Hacking, DevSecOps",
+    },
+    {
+      title: "Projects",
+      desc: "ShadowTrace, Honeypots Simulation, S.A.N.C.T.U.M",
+    },
+    {
+      title: "Interests",
+      desc: "Research, AI in Cybersecurity, Writing Tech Blogs, Storytelling",
+    },
   ];
 
   const techStack = [
@@ -33,7 +42,10 @@ export default function About() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex" style={{ backgroundColor: colors.mainBg, color: colors.white }}>
+    <div
+      className="flex"
+      style={{ backgroundColor: colors.mainBg, color: colors.white }}
+    >
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-full w-64 p-6 flex flex-col justify-between text-center border-r 
@@ -52,7 +64,7 @@ export default function About() {
         {/* Profile Section */}
         <div className="flex flex-col items-center gap-4 mt-8">
           <img
-            src="profile.jpg" 
+            src="profile.jpg"
             alt="profile"
             className="w-28 h-28 rounded-2xl border-4 object-cover"
             style={{ borderColor: colors.border }}
@@ -67,10 +79,18 @@ export default function About() {
 
         {/* Links */}
         <div className="flex justify-center gap-6 mt-6">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Github className="hover:text-purple-400 transition" />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Linkedin className="hover:text-purple-400 transition" />
           </a>
           <a href="mailto:shruthi@example.com">
@@ -98,72 +118,94 @@ export default function About() {
         </button>
 
         {/* About Section */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h1 className="text-4xl font-bold text-center md:text-left" style={{ color: colors.white }}>
+        <section className="max-w-4xl px-4 sm:px-6 text-left">
+          <h1
+            className="text-4xl font-bold mb-4"
+            style={{ color: colors.white }}
+          >
             Hi, I’m <span style={{ color: "#7A2E7D" }}>Shruthi Poosa</span>
           </h1>
           <p
-            className="mt-4 text-lg text-justify"
+            className="mt-4 text-lg"
             style={{
               color: colors.grayText,
               lineHeight: "1.8",
               marginBottom: "2em",
               fontSize: "1.1rem",
               fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              textAlign: "left", // 👈 ensures no justify
             }}
           >
-            I am a passionate <span style={{ color: colors.subText, fontWeight: 600 }}>Cybersecurity Enthusiast</span> and{" "}
-            <span style={{ color: colors.subText, fontWeight: 600 }}>Fullstack Developer</span>, with a strong foundation in Java, Python, SQL, and modern web technologies. My work spans securing digital systems, developing AI-driven solutions, and automating processes for efficiency and accuracy.
-            <br /><br />
-            I thrive at the intersection of technology and problem-solving, constantly exploring innovative approaches to safeguard systems while leveraging AI and automation to drive smarter solutions. Dedicated, detail-oriented, and collaborative, I aim to create impactful technology that balances functionality, security, and user experience.
+            I am a passionate{" "}
+            <span style={{ color: colors.subText, fontWeight: 600 }}>
+              Cybersecurity Enthusiast
+            </span>{" "}
+            and{" "}
+            <span style={{ color: colors.subText, fontWeight: 600 }}>
+              Fullstack Developer
+            </span>
+            , with a strong foundation in Java, Python, SQL, and modern web
+            technologies...
           </p>
+        </section>
 
-          {/* Cards Section */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {cards.map((card, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="p-6 rounded-2xl shadow-lg border transition cursor-pointer"
-                style={{ backgroundColor: colors.mainBg, borderColor: colors.border }}
+        {/* Cards Section */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl px-4 text-left">
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="p-6 rounded-2xl shadow-lg border transition cursor-pointer"
+              style={{
+                backgroundColor: colors.mainBg,
+                borderColor: colors.border,
+              }}
+            >
+              <h3
+                className="text-xl font-semibold mb-2"
+                style={{ color: colors.heading }}
               >
-                <h3 className="text-xl font-semibold mb-2" style={{ color: colors.heading }}>
-                  {card.title}
-                </h3>
-                <p style={{ color: colors.grayText }}>{card.desc}</p>
-              </motion.div>
-            ))}
-          </section>
+                {card.title}
+              </h3>
+              <p style={{ color: colors.grayText }}>{card.desc}</p>
+            </motion.div>
+          ))}
+        </section>
 
-          {/* Skills Section */}
-          <section className="text-left max-w-3xl mx-auto mt-12">
-            <h2 className="text-3xl font-semibold mb-6" style={{ color: colors.gradientEnd }}>
-              Skills
-            </h2>
+        {/* Skills Section */}
+        <section className="text-left max-w-3xl px-4 mt-12">
+          <h2
+            className="text-3xl font-semibold mb-6"
+            style={{ color: colors.gradientEnd }}
+          >
+            Skills
+          </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {techStack.flatMap((tab) =>
-                tab.skills.map((skill, i) => (
-                  <div key={i} className="space-y-2">
-                    <div className="flex justify-between mb-1">
-                      <span style={{ color: colors.subText }}>{skill}</span>
-                    </div>
-                    <div className="w-full h-3 rounded-lg" style={{ backgroundColor: colors.skillBg }}>
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: "80%" }}
-                        transition={{ duration: 1.2 }}
-                        className="h-3 rounded-lg"
-                        style={{
-                          background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
-                        }}
-                      />
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {techStack.flatMap((tab) =>
+              tab.skills.map((skill, i) => (
+                <div key={i} className="space-y-2">
+                  <div className="flex justify-between mb-1">
+                    <span style={{ color: colors.subText }}>{skill}</span>
                   </div>
-                ))
-              )}
-            </div>
-          </section>
+                  <div
+                    className="w-full h-3 rounded-lg"
+                    style={{ backgroundColor: colors.skillBg }}
+                  >
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: "80%" }}
+                      transition={{ duration: 1.2 }}
+                      className="h-3 rounded-lg"
+                      style={{
+                        background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </section>
 
         {/* Footer */}
