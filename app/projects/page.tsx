@@ -9,6 +9,15 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+  title: "Personal Portfolio Website",
+  description: "A responsive and interactive portfolio built with Next.js, Tailwind CSS, and Framer Motion. Features include a dynamic navbar with mobile drawer, sidebar navigation, card-style gallery with hover overlays and lightbox modal, and smooth animations to showcase projects and skills.",
+  image: "/projects/portfolio.png",  
+  repo: "https://github.com/yourusername/portfolio",  
+  category: "Web Development",
+  screenshots: ["/projects/portfolio1.png", "/projects/portfolio2.png"],  
+},
+
+    {
       title: "TwinTrap!",
       description: "A fake Wi-Fi detection system using NodeMCU that identifies Evil Twin attacks and alerts users in real-time.",
       image: "/projects/twintrap.png",

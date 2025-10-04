@@ -253,7 +253,7 @@ export default function ResumePage() {
       {/* Download Button at Bottom */}
       <div className="text-center mt-12">
         <a
-          href="/resume.pdf"
+          href="resume\Shruthipoosa.pdf"
           download
           className="px-6 py-3 bg-gradient-to-r from-[#420D4B] to-[#8B337E] 
                      hover:opacity-90 text-white rounded-lg shadow-md font-semibold"
