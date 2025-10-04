@@ -13,7 +13,7 @@ export default function ProjectsPage() {
   description: "A responsive and interactive portfolio built with Next.js, Tailwind CSS, and Framer Motion. Features include a dynamic navbar with mobile drawer, sidebar navigation, card-style gallery with hover overlays and lightbox modal, and smooth animations to showcase projects and skills.",
   image: "/projects/portfolio.png",  
   repo: "https://github.com/yourusername/portfolio",  
-  category: "Web Development",
+  category: "Web",
   screenshots: ["/projects/portfolio1.png", "/projects/portfolio2.png"],  
 },
 
