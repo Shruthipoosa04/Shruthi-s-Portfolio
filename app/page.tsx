@@ -38,32 +38,38 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#d1d5db] px-4 md:px-10 py-10">
-      {/* About Section */}
-      <section>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Hi, I’m{" "}
-          <span style={{ color: colors.gradientEnd }}>Shruthi Poosa</span>
-        </h1>
-        <p className="text-lg leading-relaxed text-justify">
-          I am a passionate{" "}
-          <span style={{ color: colors.subText, fontWeight: "600" }}>
-            Cybersecurity Enthusiast
-          </span>{" "}
-          and{" "}
-          <span style={{ color: colors.subText, fontWeight: "600" }}>
-            Fullstack Developer
-          </span>
-          , with a strong foundation in Java, Python, SQL, and modern web
-          technologies. My work spans securing digital systems, developing
-          AI-driven solutions, and automating processes for efficiency and
-          accuracy.
-          <br />
-          <br />
-          I thrive at the intersection of technology and problem-solving,
-          constantly exploring innovative approaches to safeguard systems while
-          leveraging AI and automation to drive smarter solutions.
-        </p>
-      </section>
+  {/* About Section */}
+  <section className="max-w-4xl mx-auto text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      Hi, I’m{" "}
+      <span style={{ color: colors.gradientEnd }}>Shruthi Poosa</span>
+    </h1>
+    <p className="text-lg leading-relaxed mb-8">
+      I’m a{" "}
+      <span style={{ color: colors.subText, fontWeight: "600" }}>
+        Cybersecurity Enthusiast
+      </span>{" "}
+      and{" "}
+      <span style={{ color: colors.subText, fontWeight: "600" }}>
+        Fullstack Developer
+      </span>
+      , passionate about building secure, intelligent, and scalable systems.
+      With a strong foundation in Java, Python, SQL, and modern web
+      technologies, I love transforming complex ideas into impactful digital
+      experiences.
+      <br />
+      <br />
+      My work revolves around bridging the gap between{" "}
+      <span style={{ color: colors.gradientEnd }}>security</span> and{" "}
+      <span style={{ color: colors.gradientEnd }}>innovation</span> — from
+      developing AI-driven security frameworks to automating processes that
+      enhance efficiency and reliability. I’m driven by curiosity, creativity,
+      and the pursuit of smarter, safer technology.
+    </p>
+    
+  </section>
+ 
+
 
       {/* Cards Section */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">

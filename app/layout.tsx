@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     { name: "Resume", href: "/resume" },
     { name: "Projects", href: "/projects" },
     { name: "Certifications", href: "/certifications" },
-    { name: "Gallery", href: "/gallery" }, 
+    //{ name: "Gallery", href: "/gallery" }, 
     // Add all sidebar + navbar links here
   ];
 
