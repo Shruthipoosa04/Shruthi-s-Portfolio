@@ -29,10 +29,8 @@ export default function ProjectCard({
     border: "#420D4B",
     heading: "#E0B3FF",
     subText: "#B37BD4",
-    grayText: "#d1d5db",
   };
 
-  // Functions to navigate screenshots safely
   const nextScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % screenshots.length);
@@ -45,36 +43,51 @@ export default function ProjectCard({
 
   return (
     <>
-      {/* Container with consistent width */}
-      <div className="w-full max-w-xs sm:max-w-[16rem] md:max-w-[18rem] mx-auto">
+      {/* Fixed outer wrapper alignment */}
+      <div className="flex justify-center items-stretch w-full">
         <motion.div
           whileHover={{ y: -5, scale: 1.02 }}
-          className="rounded-2xl shadow-lg border overflow-hidden cursor-pointer flex flex-col h-full"
-          style={{ backgroundColor: colors.mainBg, borderColor: colors.border }}
+          className="rounded-2xl shadow-lg border overflow-hidden cursor-pointer flex flex-col w-full sm:w-72 md:w-80 lg:w-96"
+          style={{
+            backgroundColor: colors.mainBg,
+            borderColor: colors.border,
+          }}
           onClick={() => screenshots.length > 0 && setShowGallery(true)}
         >
-          {/* Image */}
-          <div className="h-48 overflow-hidden">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
+          {/* Image Section */}
+          <div className="h-48 overflow-hidden flex items-center justify-center bg-black/40">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
           </div>
 
-          {/* Content */}
-          <div className="p-5 flex-1 flex flex-col justify-between min-h-[160px]">
+          {/* Content Section */}
+          <div className="p-5 flex flex-col flex-1 justify-between text-center">
             <div>
-              <h3 className="text-xl font-semibold mb-2" style={{ color: colors.heading }}>
+              <h3
+                className="text-lg sm:text-xl font-semibold mb-2"
+                style={{ color: colors.heading }}
+              >
                 {title}
               </h3>
-              <p className="text-sm mb-4" style={{ color: colors.subText }}>
+              <p
+                className="text-sm leading-relaxed mb-4"
+                style={{ color: colors.subText }}
+              >
                 {description}
               </p>
             </div>
-            <div className="flex gap-3 justify-center mt-2">
+
+            {/* Buttons */}
+            <div className="flex gap-3 justify-center">
               {repo && (
                 <a
                   href={repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
+                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     color: colors.heading,
@@ -89,7 +102,7 @@ export default function ProjectCard({
                   href={demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:opacity-90"
+                  className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
                   style={{
                     background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     color: colors.heading,
@@ -120,6 +133,7 @@ export default function ProjectCard({
                 alt={`${title} screenshot`}
                 className="w-full h-auto rounded-xl"
               />
+
               {screenshots.length > 1 && (
                 <>
                   <button
