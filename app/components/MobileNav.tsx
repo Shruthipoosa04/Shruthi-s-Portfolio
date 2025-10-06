@@ -41,7 +41,7 @@ export default function MobileNav({ links }: { links: Link[] }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-lg z-[90]"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90]"
               onClick={() => setIsOpen(false)}
             />
 
@@ -51,11 +51,15 @@ export default function MobileNav({ links }: { links: Link[] }) {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 80, damping: 20 }}
-              className="fixed top-0 left-0 h-screen w-72 z-[99] p-[1px] rounded-r-2xl
+              style={{ willChange: "transform" }}
+              className="fixed top-0 left-0 min-h-[100dvh] w-72 z-[99] p-[1px] rounded-r-2xl
                          bg-gradient-to-b from-[#420D4B]/60 to-[#8B337E]/60 shadow-[0_0_25px_rgba(139,51,126,0.5)]"
             >
-              <div className="h-full w-full bg-[#0a0a0a]/90 backdrop-blur-xl rounded-r-2xl p-6 flex flex-col justify-between">
-                
+              <div
+                className="min-h-[100dvh] w-full bg-[#0a0a0a]/90 backdrop-blur-md
+                           rounded-r-2xl p-6 flex flex-col justify-between overflow-y-auto
+                           pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)]"
+              >
                 {/* PROFILE HEADER */}
                 <motion.div
                   initial={{ opacity: 0, y: -15 }}
