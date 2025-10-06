@@ -36,48 +36,44 @@ export default function ProjectCard({
     setCurrentIndex((prev) => (prev + 1) % screenshots.length);
   };
 
- const prevScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const prevScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
   };
 
   return (
     <>
-      {/* Card Wrapper */}
+      {/* Card Container */}
       <div className="flex justify-center items-stretch w-full">
         <motion.div
           whileHover={{ y: -5, scale: 1.02 }}
           transition={{ duration: 0.25 }}
-          className="rounded-2xl shadow-lg border overflow-hidden cursor-pointer flex flex-col w-full sm:w-72 md:w-80 lg:w-96 h-full"
-          style={{
-            backgroundColor: colors.mainBg,
-            borderColor: colors.border,
-          }}
+          className="flex flex-col w-full sm:w-[90%] md:w-[80%] lg:w-[360px] xl:w-[380px] bg-[#0a0a0a] border border-[#420D4B] rounded-2xl shadow-lg overflow-hidden cursor-pointer transition-all"
           onClick={() => screenshots.length > 0 && setShowGallery(true)}
         >
-          {/* Image Section (fixed aspect ratio for consistency) */}
-          <div className="aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black/40">
+          {/* Image Section */}
+          <div className="w-full aspect-[4/3] overflow-hidden bg-black/40 flex items-center justify-center">
             <img
               src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               onError={(e) => {
-                e.currentTarget.src = "/projects/placeholder.png"; // fallback if image fails
+                e.currentTarget.src = "/projects/placeholder.png";
               }}
             />
           </div>
 
-          {/* Content Section */}
-          <div className="p-5 flex flex-col flex-1 justify-between text-center">
+          {/* Content */}
+          <div className="flex flex-col flex-1 justify-between p-5 text-center">
             <div>
               <h3
-                className="text-lg sm:text-xl font-semibold mb-2"
+                className="text-lg sm:text-xl font-semibold mb-2 leading-tight"
                 style={{ color: colors.heading }}
               >
                 {title}
               </h3>
               <p
-                className="text-sm leading-relaxed mb-4 line-clamp-3"
+                className="text-sm sm:text-base leading-relaxed mb-4 line-clamp-3"
                 style={{ color: colors.subText }}
               >
                 {description}
@@ -85,7 +81,7 @@ export default function ProjectCard({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3 justify-center mt-auto">
+            <div className="flex gap-3 justify-center mt-auto flex-wrap">
               {repo && (
                 <a
                   href={repo}
@@ -125,13 +121,13 @@ export default function ProjectCard({
       <AnimatePresence>
         {showGallery && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowGallery(false)}
           >
-            <div className="relative max-w-3xl w-full p-4">
+            <div className="relative max-w-4xl w-full">
               <img
                 src={screenshots[currentIndex]}
                 alt={`${title} screenshot`}
@@ -141,7 +137,7 @@ export default function ProjectCard({
               {screenshots.length > 1 && (
                 <>
                   <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 px-4 py-2 rounded-l text-[#E0B3FF]"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-l text-[#E0B3FF] text-3xl font-bold"
                     style={{
                       background: `linear-gradient(to right, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     }}
@@ -151,7 +147,7 @@ export default function ProjectCard({
                   </button>
 
                   <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 px-4 py-2 rounded-r text-[#E0B3FF]"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-r text-[#E0B3FF] text-3xl font-bold"
                     style={{
                       background: `linear-gradient(to left, ${colors.gradientStart}, ${colors.gradientEnd})`,
                     }}
