@@ -36,30 +36,34 @@ export default function ProjectCard({
     setCurrentIndex((prev) => (prev + 1) % screenshots.length);
   };
 
-  const prevScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
+ const prevScreenshot = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
   };
 
   return (
     <>
-      {/* Fixed outer wrapper alignment */}
+      {/* Card Wrapper */}
       <div className="flex justify-center items-stretch w-full">
         <motion.div
           whileHover={{ y: -5, scale: 1.02 }}
-          className="rounded-2xl shadow-lg border overflow-hidden cursor-pointer flex flex-col w-full sm:w-72 md:w-80 lg:w-96"
+          transition={{ duration: 0.25 }}
+          className="rounded-2xl shadow-lg border overflow-hidden cursor-pointer flex flex-col w-full sm:w-72 md:w-80 lg:w-96 h-full"
           style={{
             backgroundColor: colors.mainBg,
             borderColor: colors.border,
           }}
           onClick={() => screenshots.length > 0 && setShowGallery(true)}
         >
-          {/* Image Section */}
-          <div className="h-48 overflow-hidden flex items-center justify-center bg-black/40">
+          {/* Image Section (fixed aspect ratio for consistency) */}
+          <div className="aspect-[4/3] w-full overflow-hidden flex items-center justify-center bg-black/40">
             <img
               src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = "/projects/placeholder.png"; // fallback if image fails
+              }}
             />
           </div>
 
@@ -73,15 +77,15 @@ export default function ProjectCard({
                 {title}
               </h3>
               <p
-                className="text-sm leading-relaxed mb-4"
+                className="text-sm leading-relaxed mb-4 line-clamp-3"
                 style={{ color: colors.subText }}
               >
                 {description}
               </p>
             </div>
 
-            {/* Buttons */}
-            <div className="flex gap-3 justify-center">
+            {/* Action Buttons */}
+            <div className="flex gap-3 justify-center mt-auto">
               {repo && (
                 <a
                   href={repo}
