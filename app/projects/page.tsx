@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       title: "TwinTrap!",
       description:
        "TwinTrap!: Real-time detection system for fake Wi-Fi networks using NodeMCU, identifying Evil Twin attacks and alerting users instantly.",
-      image: "/projects/twintrap.png",
+      image: "/projects/Twin.png",
       repo: "https://github.com/yourusername/twintrap",
       category: "Security",
     },
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
       title: "PixelForensics",
       description:
         "Deep learning model that analyzes uploaded images and shows AI-generated content percentage through pie chart visualization.",
-      image: "/projects/pixelforensics.png",
+      image: "/projects/Pixel.png",
       repo: "https://github.com/yourusername/pixelforensics",
       category: "AI",
     },
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
       title: "ClariPDF",
       description:
         "Telegram bot that compresses PDFs to custom sizes, merges multiple PDFs, and converts between PDF, DOC, and TXT formats.",
-      image: "/projects/claripdf.png",
+      image: "/projects/ClariPDF.png",
       repo: "https://github.com/yourusername/claripdf",
       category: "Web",
     },

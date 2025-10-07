@@ -19,6 +19,14 @@ export default function Certifications() {
     {
       name: "Technical Certifications",
       items: [
+           {
+  title: "AWS Solutions Architect Job Simulation",
+  org: "Forage / Amazon Web Services",
+  date: "Oct 7, 2025",
+  img: "/certifications/AWS.png",
+  desc: "Completed a hands-on job simulation as an AWS Solutions Architect, designing scalable, reliable, and cost-efficient web application architectures using AWS services like Elastic Beanstalk, RDS, S3, and CodePipeline.",
+  link: "/certifications/AWS Solution Architect.pdf",
+},
         {
           title: "Introduction to Cybersecurity",
           org: "Cisco Networking Academy",
@@ -27,15 +35,6 @@ export default function Certifications() {
           desc: "Learned cybersecurity fundamentals, threats, and safe practices.",
           link: "/certifications/introduction to cybersecurity.pdf",
         },
-      {
-  title: "AWS Solutions Architect Job Simulation",
-  org: "Forage / Amazon Web Services",
-  date: "Oct 7, 2025",
-  img: "/certifications/AWS.png",
-  desc: "Completed a hands-on job simulation as an AWS Solutions Architect, designing scalable, reliable, and cost-efficient web application architectures using AWS services like Elastic Beanstalk, RDS, S3, and CodePipeline.",
-  link: "/certifications/AWS Solution Architect.pdf",
-},
-
         {
           title: "Problem Solving (Basic)",
           org: "HackerRank",
