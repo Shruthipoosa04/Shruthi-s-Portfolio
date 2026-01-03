@@ -64,6 +64,23 @@ export default function ProjectsPage() {
       repo: "https://github.com/yourusername/claripdf",
       category: "Web",
     },
+
+    {
+  title: "RL-Honeypot",
+  description:
+    "Reinforcement learning–based cyber deception framework where honeypots dynamically change their behavior and attack surface to actively engage attackers, prolong interactions, and learn adversarial strategies.",
+  image: "/projects/RL-Honeypot.png",
+  repo: "https://github.com/yourusername/rl-honeypot",
+  category: "Cyber Security",
+},
+{
+  title: "AURA-Lit",
+  description:
+    "AI-driven research assistant that takes a research title as input, searches platforms like IEEE Xplore, identifies the most relevant papers, and summarizes existing systems with authors, publication years, and core contributions.",
+  image: "/projects/AURA-Lit.png",
+  repo: "https://github.com/yourusername/aura-lit",
+  category: "AI / Research",
+},
   ];
 
   const filteredProjects =

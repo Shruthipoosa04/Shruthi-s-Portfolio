@@ -52,6 +52,15 @@ export default function Certifications() {
           link: "/certifications/problem_solving_intermediate certificate.pdf",
         },
         {
+  title: "Advent of Cyber 2025",
+  org: "TryHackMe",
+  date: "Dec 29, 2025",
+  img: "/certifications/TryHackMe.png",
+  desc: "Completed a 24-day beginner-friendly CTF challenge covering penetration testing, OSINT, forensics, and threat detection through hands-on cybersecurity labs.",
+  link: "/certifications/advent_of_cyber_2025.pdf",
+},
+
+        {
           title: "SQL (Basic)",
           org: "HackerRank",
           date: "Sept 22, 2025",
