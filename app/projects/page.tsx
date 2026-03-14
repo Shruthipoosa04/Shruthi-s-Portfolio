@@ -5,87 +5,108 @@ import ProjectCard from "../components/ProjectCard";
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const categories = ["All", "Web", "AI", "Security", "Hardware"];
+  const categories = ["All", "Web", "AI", "Cyber Security", "Hardware", "Research"];
 
   const projects = [
+    // ----------------- Web Projects -----------------
     {
       title: "Personal Portfolio Website",
-      description:"Responsive portfolio built with Next.js, Tailwind CSS, and Framer Motion, featuring dynamic navigation and interactive project cards with lightbox gallery.",
+      description:
+        "• Designed a responsive personal portfolio to showcase projects and skills with modern UI.\n• Built using Next.js, Tailwind CSS, and Framer Motion for animations and smooth navigation.\n• Implemented interactive project cards, gallery lightbox, and dynamic filtering system.",
       image: "/projects/portfolio.png",
-      repo: "https://github.com/yourusername/portfolio",
+      repo: "https://github.com/Shruthipoosa04/Shruthi-s-Portfolio",
       category: "Web",
       screenshots: ["/projects/portfolio1.png", "/projects/portfolio2.png"],
-    },
-    {
-      title: "TwinTrap!",
-      description:
-       "TwinTrap!: Real-time detection system for fake Wi-Fi networks using NodeMCU, identifying Evil Twin attacks and alerting users instantly.",
-      image: "/projects/Twin.png",
-      repo: "https://github.com/yourusername/twintrap",
-      category: "Security",
-    },
-    {
-      title: "PixelForensics",
-      description:
-        "Deep learning model that analyzes uploaded images and shows AI-generated content percentage through pie chart visualization.",
-      image: "/projects/Pixel.png",
-      repo: "https://github.com/yourusername/pixelforensics",
-      category: "AI",
-    },
-    {
-      title: "ShadowTrace",
-      description: "ShadowTrace: A digital footprint analyzer that collects, visualizes, and evaluates online activity to identify potential security risks and privacy exposures.",
-      image: "/projects/shadowtrace.png",
-      repo: "https://github.com/yourusername/shadowtrace",
-      category: "Security",
-      screenshots: ["/projects/shadowTrace1.png", "/projects/shadowTrace2.png"],
-    },
-    {
-      title: "S.A.N.C.T.U.M",
-      description:"S.A.N.C.T.U.M: Secure Air-Gapped Non-Contact Transmission system enabling wireless, one-way communication using ultrasonic signals for high-security environments.",
-      image: "/projects/sanctum.png",
-      repo: "https://github.com/yourusername/sanctum",
-      category: "Hardware",
-      screenshots: ["/projects/sanctum2.png", "/projects/sanctum1.png"],
-    },
-    {
-      title: "QueryLite",
-      description:
-        "AI-assisted interface that converts human language into SQL queries, making SQL practice simple and interactive.",
-      image: "/projects/querylite.png",
-      repo: "https://github.com/yourusername/querylite",
-      category: "AI",
+      isResearch: false,
     },
     {
       title: "ClariPDF",
       description:
-        "Telegram bot that compresses PDFs to custom sizes, merges multiple PDFs, and converts between PDF, DOC, and TXT formats.",
+        "• Managing large PDFs and format conversions is time-consuming for users.\n• Built using Python, Telegram Bot API, and document processing libraries.\n• Developed a Telegram bot that compresses, merges, and converts PDFs into multiple formats instantly.",
       image: "/projects/ClariPDF.png",
-      repo: "https://github.com/yourusername/claripdf",
+      repo: "https://github.com/Shruthipoosa04/ClariPDF",
       category: "Web",
+      isResearch: false,
     },
 
+    // ----------------- AI Projects -----------------
     {
-  title: "RL-Honeypot",
-  description:
-    "Reinforcement learning–based cyber deception framework where honeypots dynamically change their behavior and attack surface to actively engage attackers, prolong interactions, and learn adversarial strategies.",
-  image: "/projects/RL-Honeypot.png",
-  repo: "https://github.com/yourusername/rl-honeypot",
-  category: "Cyber Security",
-},
-{
-  title: "AURA-Lit",
-  description:
-    "AI-driven research assistant that takes a research title as input, searches platforms like IEEE Xplore, identifies the most relevant papers, and summarizes existing systems with authors, publication years, and core contributions.",
-  image: "/projects/AURA-Lit.png",
-  repo: "https://github.com/yourusername/aura-lit",
-  category: "AI / Research",
-},
+      title: "SmartExpense Intel",
+      description:
+        "• Users struggle to track scattered UPI and digital payment transactions.\n• Built using React.js, Node.js, MongoDB, and Chart.js for financial visualization.\n• Created an AI-powered expense analytics dashboard that categorizes spending and predicts financial trends.",
+      image: "/projects/expense.png",
+      repo: "https://github.com/Shruthipoosa04/SmartExpenseIntel",
+      category: "AI",
+      screenshots: ["/projects/expense1.png", "/projects/expense2.png"],
+      isResearch: true,
+    },
+    {
+      title: "AURA-Lit",
+      description:
+        "• Researchers spend significant time manually searching and reviewing academic papers.\n• Developed using Python, NLP techniques, and research database APIs.\n• Built an AI assistant that retrieves relevant papers and summarizes authors, years, and contributions.",
+      image: "/projects/AURA-lit.png",
+      repo: "https://github.com/Shruthipoosa04/AURA-Lit",
+      category: "AI",
+      isResearch: true,
+    },
+    {
+      title: "QueryLite",
+      description:
+        "• Beginners often struggle to convert natural language questions into SQL queries.\n• Developed using Python NLP models with a simple interactive frontend.\n• Built a system that translates human language into executable SQL queries for easier database learning.",
+      image: "/projects/querylite.png",
+      repo: "https://github.com/yourusername/querylite",
+      category: "AI",
+      isResearch: false,
+    },
+    {
+      title: "PixelForensics",
+      description:
+        "• Addressed the growing challenge of detecting AI-generated or manipulated images.\n• Developed using deep learning models with Python and visualization using Chart.js.\n• Built a system that analyzes uploaded images and displays AI-generated probability through visual charts.",
+      image: "/projects/Pixel.png",
+      repo: "https://github.com/yourusername/pixelforensics",
+      category: "AI",
+      isResearch: false,
+    },
+
+    // ----------------- Cyber Security Projects -----------------
+    {
+      title: "TwinTrap!",
+      description:
+        "• Identified the risk of Evil Twin Wi-Fi attacks where attackers mimic legitimate networks.\n• Built using NodeMCU, Wi-Fi scanning modules, and embedded security logic.\n• Developed a real-time detection system that identifies rogue networks and alerts users instantly.",
+      image: "/projects/Twin.png",
+      repo: "https://github.com/Shruthipoosa04/TwinTrap-",
+      category: "Cyber Security",
+      isResearch: false,
+    },
+     
+    {
+      title: "RL-Honeypot",
+      description:
+        "• Traditional honeypots are static and easily detected by advanced attackers.\n• Implemented using Python, reinforcement learning models, and containerized environments.\n• Built an adaptive honeypot that dynamically changes behavior to engage attackers and learn attack strategies.",
+      image: "/projects/rl.png",
+      repo: "https://github.com/Shruthipoosa04/RL-Honeypot",
+      category: "Cyber Security",
+      isResearch: true,
+    },
+
+    // ----------------- Hardware Projects -----------------
+    {
+      title: "S.A.N.C.T.U.M",
+      description:
+        "• Air-gapped systems lack secure non-network communication methods.\n• Implemented using Python, ultrasonic signal processing, and audio modulation techniques.\n• Developed a secure one-way communication system using ultrasonic transmission for high-security environments.",
+      image: "/projects/sanctum.png",
+      repo: "https://github.com/Shruthipoosa04/project-S.A.N.C.T.U.M.git",
+      screenshots: ["/projects/sanctum2.png", "/projects/sanctum1.png"],
+      category: "Hardware",
+      isResearch: true,
+    },
   ];
 
   const filteredProjects =
     activeFilter === "All"
       ? projects
+      : activeFilter === "Research"
+      ? projects.filter((p) => p.isResearch)
       : projects.filter((p) => p.category === activeFilter);
 
   return (

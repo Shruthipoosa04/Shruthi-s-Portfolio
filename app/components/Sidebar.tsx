@@ -45,7 +45,7 @@ export default function Sidebar() {
         <div className="flex flex-col items-center text-center w-full">
           <div className="w-24 h-24 xl:w-28 xl:h-28 rounded-2xl overflow-hidden border border-[#8B337E] shadow-[0_0_10px_rgba(139,51,126,0.4)]">
             <img
-              src="/profile.jpg"
+              src="public\gallery\shruthi..jpeg"
               alt="Shruthi Poosa"
               className="w-full h-full object-cover"
               onError={(e) => {

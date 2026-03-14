@@ -101,7 +101,7 @@ export default function ResumePage() {
   ];
 
   const techStack = [
-    { category: "Languages", skills: ["Java", "Python", "SQL"] },
+    { category: "Languages", skills: ["Java", "Python", "SQL","MongoDB"] },
     { category: "Frontend", skills: ["HTML", "CSS", "React"] },
     { category: "Backend", skills: ["Node.js", "Express"] },
     { category: "AI & Automation", skills: ["ML Models", "AI-driven Security"] },
